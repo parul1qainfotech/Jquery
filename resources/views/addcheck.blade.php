@@ -25,7 +25,7 @@
 
     <div class="col-xs-5">
     <div class="btn btn-primary btn-block">Group A</div>
-    <button type="button" id="undo_redo_rightAll" class="btn btn-primary btn-block">REMOVE ALL FROM GROUP A<i class="glyphicon glyphicon-forward"></i></button>
+    <button type="button" id="undo_redo_rightAll" class="btn btn-primary btn-block">REMOVE ALL FROM GROUP<i class="glyphicon glyphicon-forward"></i></button>
        <form method="post" action="/delete">
        @csrf
         <select name="from[]" id="undo_redo" class="form-control "size="13" multiple="multiple">
@@ -50,7 +50,12 @@
     <div class="col-xs-5" >
     <div class="btn btn-primary btn-block">Group B</div>
     <button type="button" id="undo_redo_leftAll" class="btn btn-primary btn-block">REMOVE ALL FROM GROUP B <i class="glyphicon glyphicon-backward"></i></button>
-        <select name="to[]" id="undo_redo_to" class="form-control" size="13" multiple="multiple"></select>
+        <select name="to[]" id="undo_redo_to" class="form-control" size="13" multiple="multiple">
+        @foreach($datas2 as $i)
+            <option value="{{$i->name}}">{{$i->name}}</option>
+            @endforeach
+        </select>
+       
     </div>
 
  </div>
