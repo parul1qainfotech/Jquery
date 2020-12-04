@@ -20,42 +20,41 @@
 <body>
     
 
+
 <div class="row" style="margin-top:80px">
 
     <div class="col-xs-5">
-    <button type="button" id="undo_redo_rightAll" class="btn btn-primary btn-block">ADD ALL<i class="glyphicon glyphicon-forward"></i></button>
+    <div class="btn btn-primary btn-block">Group A</div>
+    <button type="button" id="undo_redo_rightAll" class="btn btn-primary btn-block">REMOVE ALL FROM GROUP A<i class="glyphicon glyphicon-forward"></i></button>
+       <form method="post" action="/delete">
+       @csrf
         <select name="from[]" id="undo_redo" class="form-control "size="13" multiple="multiple">
-            <option value="1">Red</option>
-            <option value="2">Blue</option>
-            <option value="3">green</option>
-            <option value="4">Pink</option>
-            <option value="5">Yellow</option>
-            <option value="6">Orange</option>
-            <option value="7">Black</option>
-            <option value="8">White</option>
-            <option value="9">Purple</option>
-            <option value="10">Brown</option>
-            
+           @foreach($datas as $i)
+            <option value="{{$i->id}}">{{$i->name}}</option>
+            @endforeach
         </select>
+        
+        
     </div>
  
     <div class="col-xs-2" >
      
-        
-        <button type="button" id="undo_redo_rightSelected" class="btn btn-primary btn-block" style="margin-top:40px">ADD TO GROUP   <i class="glyphicon glyphicon-chevron-right"></i></button>
-        <button type="button" id="undo_redo_leftSelected" class="btn btn-primary btn-block"style="margin-top:40px">REMOVE FROM GROUP   <i class="glyphicon glyphicon-chevron-left"></i></button>
-        
+        <button class="btn btn-primary " type="submit" style="margin-top:40px">REMOVE FROM DATABASE</button>
+        <button type="button" id="undo_redo_rightSelected"  name="rightselect" class="btn btn-primary btn-block" style="margin-top:40px">ADD TO GROUP B <i class="glyphicon glyphicon-chevron-right"></i></button>
+        <button type="button" id="undo_redo_leftSelected"  class="btn btn-primary btn-block"style="margin-top:40px"> ADD TO GROUP A <i class="glyphicon glyphicon-chevron-left"></i></button>
       
+   
      
     </div>
- 
+    </form>
     <div class="col-xs-5" >
-    <button type="button" id="undo_redo_leftAll" class="btn btn-primary btn-block">REMOVE ALL   <i class="glyphicon glyphicon-backward"></i></button>
+    <div class="btn btn-primary btn-block">Group B</div>
+    <button type="button" id="undo_redo_leftAll" class="btn btn-primary btn-block">REMOVE ALL FROM GROUP B <i class="glyphicon glyphicon-backward"></i></button>
         <select name="to[]" id="undo_redo_to" class="form-control" size="13" multiple="multiple"></select>
     </div>
 
  </div>
-
+</form>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
  <script  src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -69,12 +68,11 @@ $(function() {
   $('#undo_redo').multiselect();
  // $('select').selectpicker();
 
- 
-
 });
 
 
 });
+
 </script>
 </body>
 </html>

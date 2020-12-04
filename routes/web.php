@@ -19,4 +19,5 @@ Route::get('/', function ()
 Route::view('/todo','todo');
 Route::view('/jquery','jquery1');
 Route::view('/multi','mult');
-Route::view('/add','addcheck');
+Route::get('/add','todo@data');
+Route::post('/delete','todo@delete1');
