@@ -52,7 +52,7 @@
     <button type="button" id="undo_redo_leftAll" class="btn btn-primary btn-block">REMOVE ALL FROM GROUP B <i class="glyphicon glyphicon-backward"></i></button>
         <select name="to[]" id="undo_redo_to" class="form-control" size="13" multiple="multiple">
         @foreach($datas2 as $i)
-            <option value="{{$i->name}}">{{$i->name}}</option>
+            <option value="{{$i->id}}">{{$i->name}}</option>
             @endforeach
         </select>
        
