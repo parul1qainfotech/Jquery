@@ -23,33 +23,16 @@ class todo extends Controller
     function delete1(Request $req){
        
         $forms=$req->get('from');
-        $forms2=$req->get('to');
-       
-       
-       foreach($forms as $i)
-       {
-           $data=todos::find($i);
-          
-          DB::table('user2')->insert (['name'=>$data->name]);
-          DB::table('jqueryuser')->delete (['id'=>$i]);
-        
-       }
-       foreach($forms2 as $j)
-       {
-           $data2=todos2::find($j);
-          
-          DB::table('user2')->insert (['name'=>$data2->name]);
-          DB::table('jqueryuser')->delete (['id'=>$j]);
-        
-       }
-           return redirect('/add');
+        //$val=DB::delete('delete from jqueryuser where id in ('.implode(",",$forms).')');
+        foreach($forms as $i)
+        {
+            $data=todos::find($i);
+           
+           DB::table('user2')->insert (['name'=>$data->name]);
+           DB::table('jqueryuser')->delete (['name'=>$i]);
+        }
+            return redirect('/add');
             
-    }
-
-
-    function delete2(Request $req){
-         DB::delete('delete from jqueryuser where name in ('.implode(",",$forms).')');
-         return redirect('/add');
     }
 
 

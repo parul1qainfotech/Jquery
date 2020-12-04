@@ -21,4 +21,4 @@ Route::view('/jquery','jquery1');
 Route::view('/multi','mult');
 Route::get('/add','todo@data');
 Route::post('/delete','todo@delete1');
-Route::post('/deletedb','todo@delete2');
+Route::post('/update','todo@update');

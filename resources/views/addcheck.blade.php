@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +12,6 @@
     
     margin-top:20px;
     }
-
     body{
         margin:20px;
     }
@@ -68,16 +68,11 @@
 
 <script>
 $(document).ready(function(){
-
 $(function() {   
   $('#undo_redo').multiselect();
  // $('select').selectpicker();
-
 });
-
-
 });
-
 </script>
 </body>
 </html>
